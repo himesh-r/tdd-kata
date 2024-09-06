@@ -91,4 +91,13 @@ RSpec.describe Calculator do
     end
   end
 
+  describe "sum" do
+    it "returns addition of numbers present in input_array_str" do
+      calculator = Calculator.new "1,2"
+      calculator.split_by_delimiter
+      calculator.to_int
+      expect(calculator.sum).to eq(3)
+    end
+  end
+
 end
