@@ -49,3 +49,8 @@ class Calculator
   end
 
 end
+
+def add(numbers)
+  calculator = Calculator.new numbers
+  calculator.sum
+end
