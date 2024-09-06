@@ -21,4 +21,7 @@ class Calculator
     @input_array_str.map(&:to_i)
   end
 
+  def sum
+  end
+
 end
