@@ -43,6 +43,11 @@ RSpec.describe Calculator do
       expect(@calculator).to respond_to(:input_numbers)
       expect(@calculator).to respond_to(:input_numbers=)
     end
+
+    it "should have extract_custom_delimiter instance method" do
+      expect(@calculator).to respond_to(:extract_custom_delimiter)
+    end
+    
   end
 
   describe "validator" do
