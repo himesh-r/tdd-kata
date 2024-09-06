@@ -37,6 +37,9 @@ class Calculator
   end
 
   def sum
+    strip_custom_delimiter
+    split_by_delimiter
+    to_int  
     @input_numbers.sum
   end
 
