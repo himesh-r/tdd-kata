@@ -18,6 +18,7 @@ class Calculator
   end
 
   def to_int
+    @input_array_str.map(&:to_i)
   end
 
 end
