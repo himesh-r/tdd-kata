@@ -72,14 +72,15 @@ RSpec.describe Calculator do
   end
 
   describe "delimiter" do
+    before do
+      @calculator = Calculator.new("//;\n1,2")
+    end
+
     it "has \\n and ',' as default delimiter" do
       expect(Calculator::DEFAULT_DELIMITER).to eq(["\n", ","])
     end
 
     describe "extract_custom_delimiter" do
-      before do
-        @calculator = Calculator.new("//;\n1,2")
-      end
       it "extracts custom delimiter from input string" do
         expect(@calculator.extract_custom_delimiter).to eq(";")
       end
@@ -98,6 +99,12 @@ RSpec.describe Calculator do
       it "assigns value to custom_delimiter attr_accessor" do
         @calculator.extract_custom_delimiter
         expect(@calculator.custom_delimiter).to eq(";")
+      end
+    end
+
+    describe "all_delimiters" do
+      it "returns and an array of default and custom delimiters" do
+        expect(@calculator.all_delimiters).to eq(["\n", ",", ';'])
       end
     end
   end
