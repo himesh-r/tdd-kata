@@ -60,7 +60,10 @@ RSpec.describe Calculator do
     it "should have strip_custom_delimiter instance method" do
       expect(@calculator).to respond_to(:strip_custom_delimiter)
     end
-    
+
+    it "should have validate_input_numbers instance method" do
+      expect(@calculator).to respond_to(:validate_input_numbers)
+    end
   end
 
   describe "validator" do
