@@ -29,7 +29,7 @@ class Calculator
   end
 
   def split_by_delimiter
-    @input_array_str = @input.split(Regexp.union(DEFAULT_DELIMITERS))
+    @input_array_str = @input.split(Regexp.union(all_delimiters))
   end
 
   def to_int
