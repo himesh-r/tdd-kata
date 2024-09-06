@@ -88,6 +88,12 @@ RSpec.describe Calculator do
         calculator = Calculator.new("//;\n1,2")
         expect(calculator).to have_received(:extract_custom_delimiter)
       end
+
+      it "assigns value to custom_delimiter attr_accessor" do
+        calculator = Calculator.new("//;\n1,2")
+        calculator.extract_custom_delimiter
+        expect(calculator.custom_delimiter).to eq(";")
+      end
     end
   end
 
