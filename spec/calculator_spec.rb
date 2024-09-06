@@ -15,6 +15,12 @@ RSpec.describe Calculator do
       expect(calculator).to respond_to(:input)
     end
 
+    it "should have attr_accessor for input_array_str" do
+      calculator = Calculator.new ""
+      expect(calculator).to respond_to(:input_array_str=)
+      expect(calculator).to respond_to(:input_array_str)
+    end
+
     it "should assign passed parameter to input" do
       calculator = Calculator.new "1,2"
       expect(calculator.input).to eq("1,2")
@@ -53,6 +59,12 @@ RSpec.describe Calculator do
     it "splits input string by allowed delimiters '\n' and ','" do
       calculator = Calculator.new "1,2\n3"
       expect(calculator.split_by_delimiter).to eq(["1", "2", "3"])
+    end
+
+    it "assigns array of number strings to input_array_str" do
+      calculator = Calculator.new "1,2"
+      calculator.split_by_delimiter
+      expect(calculator.input_array_str).to eq(["1", "2"])
     end
   end
 
