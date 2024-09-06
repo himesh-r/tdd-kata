@@ -95,6 +95,13 @@ RSpec.describe Calculator do
       calculator.split_by_delimiter
       expect(calculator.to_int).to eq([1,2])
     end
+
+    it "assigns the converted array of numbers to input_numbers attr_accessor" do 
+      calculator = Calculator.new "1,2"
+      calculator.split_by_delimiter
+      calculator.to_int
+      expect(calculator.input_numbers).to eq([1,2])
+    end
   end
 
   describe "sum" do
