@@ -21,6 +21,11 @@ RSpec.describe Calculator do
       expect(calculator).to respond_to(:input_array_str)
     end
 
+    it "should have to_int instance method" do
+      calculator = Calculator.new ""
+      expect(calculator).to respond_to(:to_int)
+    end
+
     it "should assign passed parameter to input" do
       calculator = Calculator.new "1,2"
       expect(calculator.input).to eq("1,2")
