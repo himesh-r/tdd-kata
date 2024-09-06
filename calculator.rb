@@ -4,6 +4,10 @@ class Calculator
 
   def initialize(args)
     @input = args
+    validate
+  end
+
+  def validate
   end
 
 end
