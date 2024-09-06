@@ -80,7 +80,7 @@ RSpec.describe Calculator do
 
   describe "delimiter" do
     before do
-      @calculator = Calculator.new("//;\n1,2")
+      @calculator = Calculator.new "//;\n1,2"
     end
 
     it "has \\n and ',' as default delimiter" do
@@ -97,13 +97,13 @@ RSpec.describe Calculator do
       end
 
       it "returns nil if custom delimiter is not passed" do 
-        calculator = Calculator.new("1,2")
+        calculator = Calculator.new "1,2"
         expect(calculator.extract_custom_delimiter).to eq(nil)
       end
 
       it "should be called from constrcutor" do
         allow_any_instance_of(Calculator).to receive(:extract_custom_delimiter)
-        calculator = Calculator.new("1,2")
+        calculator = Calculator.new "1,2"
         expect(calculator).to have_received(:extract_custom_delimiter)
       end
 
@@ -119,7 +119,7 @@ RSpec.describe Calculator do
       end
 
       it "returns default delimiters if custom_delimiter is not set" do
-        calculator = Calculator.new("1,2")
+        calculator = Calculator.new "1,2"
         expect(calculator.all_delimiters).to eq(Calculator::DEFAULT_DELIMITERS)
       end
     end
@@ -127,7 +127,7 @@ RSpec.describe Calculator do
 
   describe "strip_custom_delimiter" do
     it "removes custom delimiter pattern from input string" do
-      calculator = Calculator.new("//;\n1,2")
+      calculator = Calculator.new "//;\n1,2"
       calculator.strip_custom_delimiter
       expect(calculator.input).to eq("1,2")
     end
@@ -150,7 +150,7 @@ RSpec.describe Calculator do
     end
 
     it "splits input string by default and custom delimiter" do
-      calculator = Calculator.new("//;\n1,2\n3;4")
+      calculator = Calculator.new "//;\n1,2\n3;4"
       calculator.strip_custom_delimiter
       expect(calculator.split_by_delimiter).to eq(["1", "2", "3", "4"])
     end
@@ -182,14 +182,14 @@ RSpec.describe Calculator do
 
   describe "validate_input_numbers" do
     it "gives an error if negative numbers are passed in input" do
-      calculator = Calculator.new("1,2,-3,-4")
+      calculator = Calculator.new "1,2,-3,-4"
       calculator.split_by_delimiter
       calculator.to_int
       expect{calculator.validate_input_numbers}.to raise_error(ArgumentError, 'negative numbers not allowed: -3, -4')
     end
 
     it "does not raise error if all numbers are positibe" do
-      calculator = Calculator.new("1,2")
+      calculator = Calculator.new "1,2"
       calculator.split_by_delimiter
       calculator.to_int
       expect{calculator.validate_input_numbers}.not_to raise_error
@@ -203,7 +203,7 @@ RSpec.describe Calculator do
     end
 
     it "returns addition of numbers for string with default and custom delimiters" do
-      calculator = Calculator.new("//;\n1,2\n3;4")
+      calculator = Calculator.new "//;\n1,2\n3;4"
       expect(calculator.sum).to eq(10)
     end
   end
