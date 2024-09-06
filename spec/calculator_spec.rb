@@ -34,8 +34,8 @@ RSpec.describe Calculator do
   end
 
   describe "delimiter" do
-    it "has \\n as default delimiter" do
-      expect(Calculator::DEFAULT_DELIMITER).to eq("\n")
+    it "has \\n and ',' as default delimiter" do
+      expect(Calculator::DEFAULT_DELIMITER).to eq(["\n", ","])
     end
   end
 
