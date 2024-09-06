@@ -26,6 +26,11 @@ RSpec.describe Calculator do
       expect(calculator).to respond_to(:to_int)
     end
 
+    it "should have split_by_delimiter instance method" do
+      calculator = Calculator.new ""
+      expect(calculator).to respond_to(:split_by_delimiter)
+    end
+
     it "should assign passed parameter to input" do
       calculator = Calculator.new "1,2"
       expect(calculator.input).to eq("1,2")
