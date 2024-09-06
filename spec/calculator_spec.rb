@@ -78,4 +78,12 @@ RSpec.describe Calculator do
     end
   end
 
+  describe "to_int" do
+    it "converts input_array_str into array of numbers" do 
+      calculator = Calculator.new "1,2"
+      calculator.split_by_delimiter
+      expect(calculator.to_int).to eq([1,2])
+    end
+  end
+
 end
