@@ -100,6 +100,11 @@ RSpec.describe Calculator do
         @calculator.extract_custom_delimiter
         expect(@calculator.custom_delimiter).to eq(";")
       end
+
+      it "cleans input string" do
+        @calculator.extract_custom_delimiter
+        expect(@calculator.input).to eq("1,2")
+      end
     end
 
     describe "all_delimiters" do
