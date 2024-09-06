@@ -37,6 +37,8 @@ class Calculator
   end
 
   def validate_input_numbers
+    negative_numbers = @input_numbers.select{|num| num < 0}
+    raise ArgumentError, "negative numbers not allowed: #{negative_numbers.join(', ')}" if negative_numbers.any?
   end
 
   def sum
