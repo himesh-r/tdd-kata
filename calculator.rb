@@ -16,8 +16,7 @@ class Calculator
   end
 
   def extract_custom_delimiter
-    delimiter_pattern = /\/\/(.){0,1}\n/
-    match = delimiter_pattern.match(@input)
+    match = CUSTOM_DELIMITER_PATTERN.match(@input)
     @custom_delimiter = match[1] if match
   end
 
