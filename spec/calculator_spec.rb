@@ -82,6 +82,12 @@ RSpec.describe Calculator do
         calculator = Calculator.new("1,2")
         expect(calculator.extract_custom_delimiter).to eq(nil)
       end
+
+      it "should be called from constrcutor" do
+        allow_any_instance_of(Calculator).to receive(:extract_custom_delimiter)
+        calculator = Calculator.new("//;\n1,2")
+        expect(calculator).to have_received(:extract_custom_delimiter)
+      end
     end
   end
 
