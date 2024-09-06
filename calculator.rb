@@ -8,6 +8,7 @@ class Calculator
   end
 
   def validate
+    raise ArgumentError unless @input.is_a?(String)
   end
 
 end
