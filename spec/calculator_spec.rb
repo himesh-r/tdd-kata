@@ -183,6 +183,14 @@ RSpec.describe Calculator do
       calculator.to_int
       expect(calculator.sum).to eq(3)
     end
+
+    it "returns addition of numbers for string with default and custom delimiters" do
+      calculator = Calculator.new("//;\n1,2\n3;4")
+      calculator.strip_custom_delimiter
+      calculator.split_by_delimiter
+      calculator.to_int
+      expect(calculator.sum).to eq(10)
+    end
   end
 
 end
