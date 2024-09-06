@@ -22,6 +22,7 @@ class Calculator
   end
 
   def strip_custom_delimiter
+    @input.gsub!(CUSTOM_DELIMITER_PATTERN, '')
   end
 
   def all_delimiters
