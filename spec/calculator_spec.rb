@@ -80,6 +80,10 @@ RSpec.describe Calculator do
       expect(Calculator::DEFAULT_DELIMITERS).to eq(["\n", ","])
     end
 
+    it "had custom delimiter regex degined" do
+      expect(Calculator::CUSTOM_DELIMITER_PATTERN).to eq(/\/\/(.){0,1}\n/)
+    end
+
     describe "extract_custom_delimiter" do
       it "extracts custom delimiter from input string" do
         expect(@calculator.extract_custom_delimiter).to eq(";")
