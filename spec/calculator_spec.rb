@@ -21,4 +21,12 @@ RSpec.describe Calculator do
     end
   end
 
+  describe "validator" do
+    it "runs validations upon initialization" do
+      allow_any_instance_of(Calculator).to receive(:validate)
+      calculator = Calculator.new "1,2"
+      expect(calculator).to have_received(:validate)
+    end
+  end
+
 end
