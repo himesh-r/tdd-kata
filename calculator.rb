@@ -20,6 +20,9 @@ class Calculator
     @custom_delimiter = match[1] if match
   end
 
+  def all_delimiters
+  end
+
   def split_by_delimiter
     @input_array_str = @input.split(Regexp.union(DEFAULT_DELIMITER))
   end
