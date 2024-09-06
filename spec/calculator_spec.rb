@@ -103,8 +103,13 @@ RSpec.describe Calculator do
     end
 
     describe "all_delimiters" do
-      it "returns and an array of default and custom delimiters" do
+      it "returns an array of default and custom delimiters if custom_delimiter is set" do
         expect(@calculator.all_delimiters).to eq(["\n", ",", ';'])
+      end
+
+      it "returns default delimiters if custom_delimiter is not set" do
+        calculator = Calculator.new("1,2")
+        expect(calculator.all_delimiters).to eq(Calculator::DEFAULT_DELIMITERS)
       end
     end
   end
