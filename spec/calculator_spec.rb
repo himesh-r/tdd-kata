@@ -35,6 +35,11 @@ RSpec.describe Calculator do
       calculator = Calculator.new "1,2"
       expect(calculator.input).to eq("1,2")
     end
+
+    it "should have sum instance method" do
+      calculator = Calculator.new ""
+      expect(calculator).to respond_to(:sum)
+    end
   end
 
   describe "validator" do
