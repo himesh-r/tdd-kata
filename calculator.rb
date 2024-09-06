@@ -17,4 +17,7 @@ class Calculator
     @input_array_str = @input.split(Regexp.union(DEFAULT_DELIMITER))
   end
 
+  def to_int
+  end
+
 end
