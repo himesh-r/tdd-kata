@@ -25,6 +25,9 @@ class Calculator
     @custom_delimiter 
   end
 
+  def strip_custom_delimiter
+  end
+
   def all_delimiters
     @custom_delimiter ? DEFAULT_DELIMITERS + [@custom_delimiter] : DEFAULT_DELIMITERS
   end
