@@ -52,6 +52,10 @@ RSpec.describe Calculator do
       expect(@calculator).to respond_to(:custom_delimiter)
       expect(@calculator).to respond_to(:custom_delimiter=)
     end
+
+    it "should have all_delimiters instance method" do
+      expect(@calculator).to respond_to(:all_delimiters)
+    end
     
   end
 
