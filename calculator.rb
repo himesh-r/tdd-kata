@@ -44,7 +44,8 @@ class Calculator
   def sum
     strip_custom_delimiter
     split_by_delimiter
-    to_int  
+    to_int
+    validate_input_numbers
     @input_numbers.sum
   end
 
