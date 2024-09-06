@@ -3,6 +3,9 @@ require '../calculator'
 RSpec.describe Calculator do
 
   describe "calculator instance" do
+    before do
+      @calculator = Calculator.new ""
+    end
     it "constructor takes one parameter and creates object of type calculator" do
       expect{Calculator.new}.to raise_error(ArgumentError)
       calculator = Calculator.new ""
@@ -10,25 +13,21 @@ RSpec.describe Calculator do
     end
 
     it "should have attr_accessor for input" do
-      calculator = Calculator.new ""
-      expect(calculator).to respond_to(:input=)
-      expect(calculator).to respond_to(:input)
+      expect(@calculator).to respond_to(:input=)
+      expect(@calculator).to respond_to(:input)
     end
 
     it "should have attr_accessor for input_array_str" do
-      calculator = Calculator.new ""
-      expect(calculator).to respond_to(:input_array_str=)
-      expect(calculator).to respond_to(:input_array_str)
+      expect(@calculator).to respond_to(:input_array_str=)
+      expect(@calculator).to respond_to(:input_array_str)
     end
 
     it "should have to_int instance method" do
-      calculator = Calculator.new ""
-      expect(calculator).to respond_to(:to_int)
+      expect(@calculator).to respond_to(:to_int)
     end
 
     it "should have split_by_delimiter instance method" do
-      calculator = Calculator.new ""
-      expect(calculator).to respond_to(:split_by_delimiter)
+      expect(@calculator).to respond_to(:split_by_delimiter)
     end
 
     it "should assign passed parameter to input" do
@@ -37,14 +36,12 @@ RSpec.describe Calculator do
     end
 
     it "should have sum instance method" do
-      calculator = Calculator.new ""
-      expect(calculator).to respond_to(:sum)
+      expect(@calculator).to respond_to(:sum)
     end
 
     it "should have attr_accessor for input_numbers" do
-      calculator = Calculator.new ""
-      expect(calculator).to respond_to(:input_numbers)
-      expect(calculator).to respond_to(:input_numbers=)
+      expect(@calculator).to respond_to(:input_numbers)
+      expect(@calculator).to respond_to(:input_numbers=)
     end
   end
 
@@ -90,17 +87,19 @@ RSpec.describe Calculator do
   end
 
   describe "to_int" do
+    before do
+      @calculator = Calculator.new "1,2"
+    end
+
     it "converts input_array_str into array of numbers" do 
-      calculator = Calculator.new "1,2"
-      calculator.split_by_delimiter
-      expect(calculator.to_int).to eq([1,2])
+      @calculator.split_by_delimiter
+      expect(@calculator.to_int).to eq([1,2])
     end
 
     it "assigns the converted array of numbers to input_numbers attr_accessor" do 
-      calculator = Calculator.new "1,2"
-      calculator.split_by_delimiter
-      calculator.to_int
-      expect(calculator.input_numbers).to eq([1,2])
+      @calculator.split_by_delimiter
+      @calculator.to_int
+      expect(@calculator.input_numbers).to eq([1,2])
     end
   end
 
