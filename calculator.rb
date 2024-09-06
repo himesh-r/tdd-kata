@@ -7,6 +7,7 @@ class Calculator
   def initialize(args)
     @input = args
     validate
+    extract_custom_delimiter
   end
 
   def validate
