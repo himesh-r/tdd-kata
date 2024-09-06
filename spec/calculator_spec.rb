@@ -212,6 +212,6 @@ end
 
 RSpec.describe "add" do
   it "takes delimited string of numbers as argument and returns its sum" do
-    expect(sum("1,2,3")).to eq(6)
+    expect(add("1,2,3")).to eq(6)
   end
 end
