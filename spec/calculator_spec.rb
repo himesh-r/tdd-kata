@@ -71,6 +71,18 @@ RSpec.describe Calculator do
     it "has \\n and ',' as default delimiter" do
       expect(Calculator::DEFAULT_DELIMITER).to eq(["\n", ","])
     end
+
+    describe "extract_custom_delimiter" do
+      it "extracts custom delimiter from input string" do
+        calculator = Calculator.new("//;\n1,2")
+        expect(calculator.extract_custom_delimiter).to eq(";")
+      end
+
+      it "returns nil if custom delimiter is not passed" do 
+        calculator = Calculator.new("1,2")
+        expect(calculator.extract_custom_delimiter).to eq(nil)
+      end
+    end
   end
 
   describe "split_by_delimiter" do
