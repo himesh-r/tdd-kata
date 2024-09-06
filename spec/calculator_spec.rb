@@ -146,6 +146,12 @@ RSpec.describe Calculator do
       expect(calculator.split_by_delimiter).to eq(["1", "2", "3"])
     end
 
+    it "splits input string by default and custom delimiter" do
+      calculator = Calculator.new("//;\n1,2\n3;4")
+      calculator.strip_custom_delimiter
+      expect(calculator.split_by_delimiter).to eq(["1", "2", "3", "4"])
+    end
+
     it "assigns array of number strings to input_array_str" do
       calculator = Calculator.new "1,2"
       calculator.split_by_delimiter
