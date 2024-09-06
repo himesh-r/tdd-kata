@@ -27,6 +27,10 @@ RSpec.describe Calculator do
       calculator = Calculator.new "1,2"
       expect(calculator).to have_received(:validate)
     end
+
+    it "returns error if argument is not a string" do
+      expect{Calculator.new 1}.to raise_error(ArgumentError)
+    end
   end
 
 end
