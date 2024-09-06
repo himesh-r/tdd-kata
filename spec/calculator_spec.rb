@@ -177,6 +177,23 @@ RSpec.describe Calculator do
       @calculator.to_int
       expect(@calculator.input_numbers).to eq([1,2])
     end
+
+  end
+
+  describe "validate_input_numbers" do
+    it "gives an error if negative numbers are passed in input" do
+      calculator = Calculator.new("1,2,-3,-4")
+      calculator.split_by_delimiter
+      calculator.to_int
+      expect{calculator.validate_input_numbers}.to raise_error(ArgumentError, 'negative numbers not allowed: -3, -4')
+    end
+
+    it "does not raise error if all numbers are positibe" do
+      calculator = Calculator.new("1,2")
+      calculator.split_by_delimiter
+      calculator.to_int
+      expect{calculator.validate_input_numbers}.not_to raise_error
+    end
   end
 
   describe "sum" do
