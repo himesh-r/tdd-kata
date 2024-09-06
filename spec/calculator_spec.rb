@@ -40,6 +40,12 @@ RSpec.describe Calculator do
       calculator = Calculator.new ""
       expect(calculator).to respond_to(:sum)
     end
+
+    it "should have attr_accessor for input_numbers" do
+      calculator = Calculator.new ""
+      expect(calculator).to respond_to(:input_numbers)
+      expect(calculator).to respond_to(:input_numbers=)
+    end
   end
 
   describe "validator" do
