@@ -14,6 +14,11 @@ RSpec.describe Calculator do
       expect(calculator).to respond_to(:input=)
       expect(calculator).to respond_to(:input)
     end
+
+    it "should assign passed parameter to input" do
+      calculator = Calculator.new "1,2"
+      expect(calculator.input).to eq("1,2")
+    end
   end
 
 end
