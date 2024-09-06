@@ -39,4 +39,21 @@ RSpec.describe Calculator do
     end
   end
 
+  describe "split_by_delimiter" do
+    it "splits input string by allowed delimiter ','" do
+      calculator = Calculator.new "1,2"
+      expect(calculator.split_by_delimiter).to eq(["1", "2"])
+    end
+
+    it "splits input string by allowed delimiter '\n'" do
+      calculator = Calculator.new "1\n2"
+      expect(calculator.split_by_delimiter).to eq(["1", "2"])
+    end
+
+    it "splits input string by allowed delimiters '\n' and ','" do
+      calculator = Calculator.new "1,2\n3"
+      expect(calculator.split_by_delimiter).to eq(["1", "2", "3"])
+    end
+  end
+
 end
