@@ -73,9 +73,11 @@ RSpec.describe Calculator do
     end
 
     describe "extract_custom_delimiter" do
+      before do
+        @calculator = Calculator.new("//;\n1,2")
+      end
       it "extracts custom delimiter from input string" do
-        calculator = Calculator.new("//;\n1,2")
-        expect(calculator.extract_custom_delimiter).to eq(";")
+        expect(@calculator.extract_custom_delimiter).to eq(";")
       end
 
       it "returns nil if custom delimiter is not passed" do 
@@ -85,14 +87,13 @@ RSpec.describe Calculator do
 
       it "should be called from constrcutor" do
         allow_any_instance_of(Calculator).to receive(:extract_custom_delimiter)
-        calculator = Calculator.new("//;\n1,2")
+        calculator = Calculator.new("1,2")
         expect(calculator).to have_received(:extract_custom_delimiter)
       end
 
       it "assigns value to custom_delimiter attr_accessor" do
-        calculator = Calculator.new("//;\n1,2")
-        calculator.extract_custom_delimiter
-        expect(calculator.custom_delimiter).to eq(";")
+        @calculator.extract_custom_delimiter
+        expect(@calculator.custom_delimiter).to eq(";")
       end
     end
   end
