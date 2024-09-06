@@ -1,6 +1,6 @@
 class Calculator
 
-  DEFAULT_DELIMITER = ["\n", ',']
+  DEFAULT_DELIMITERS = ["\n", ',']
 
   attr_accessor :input, :input_array_str, :input_numbers, :custom_delimiter
 
