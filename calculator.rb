@@ -2,7 +2,7 @@ class Calculator
 
   DEFAULT_DELIMITER = ["\n", ',']
 
-  attr_accessor :input
+  attr_accessor :input, :input_array_str
 
   def initialize(args)
     @input = args
@@ -14,7 +14,7 @@ class Calculator
   end
 
   def split_by_delimiter
-    @input.split(Regexp.union(DEFAULT_DELIMITER))
+    @input_array_str = @input.split(Regexp.union(DEFAULT_DELIMITER))
   end
 
 end
