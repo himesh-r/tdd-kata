@@ -47,6 +47,11 @@ RSpec.describe Calculator do
     it "should have extract_custom_delimiter instance method" do
       expect(@calculator).to respond_to(:extract_custom_delimiter)
     end
+
+    it "should have attr_accessor for custom_delimiter" do
+      expect(@calculator).to respond_to(:custom_delimiter)
+      expect(@calculator).to respond_to(:custom_delimiter=)
+    end
     
   end
 
