@@ -22,6 +22,7 @@ class Calculator
   end
 
   def sum
+    @input_numbers.sum
   end
 
 end
