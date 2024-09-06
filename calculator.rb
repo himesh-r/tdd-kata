@@ -1,6 +1,6 @@
 class Calculator
 
-  DEFAULT_DELIMITER = "\n"
+  DEFAULT_DELIMITER = ["\n", ',']
 
   attr_accessor :input
 
