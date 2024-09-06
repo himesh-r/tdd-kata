@@ -36,6 +36,9 @@ class Calculator
     @input_numbers = @input_array_str.map(&:to_i)
   end
 
+  def validate_input_numbers
+  end
+
   def sum
     strip_custom_delimiter
     split_by_delimiter
