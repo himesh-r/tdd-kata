@@ -214,4 +214,24 @@ RSpec.describe "add" do
   it "takes delimited string of numbers as argument and returns its sum" do
     expect(add("1,2,3")).to eq(6)
   end
+
+  it "returns 0 if blank string is passed" do
+    expect(add("")).to eq(0)
+  end
+
+  it "returns 1 if '1' is passed" do
+    expect(add("1")).to eq(1)
+  end
+
+  it "allows ',' and new line characters to be used as delimiters" do
+    expect(add("1\n2,3")).to eq(6)
+  end
+
+  it "allows to pass a custom delimiter" do
+    expect(add("//;\n1;2")).to eq(3)
+  end
+
+  it "throws an exception if negative numbers are passed" do
+    expect{add("1,2,-3")}.to raise_error(ArgumentError, 'negative numbers not allowed: -3')
+  end
 end
