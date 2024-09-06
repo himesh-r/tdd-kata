@@ -1,5 +1,7 @@
 class Calculator
 
+  DEFAULT_DELIMITER = "\n"
+
   attr_accessor :input
 
   def initialize(args)
