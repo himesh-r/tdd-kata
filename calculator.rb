@@ -13,4 +13,8 @@ class Calculator
     raise ArgumentError unless @input.is_a?(String)
   end
 
+  def split_by_delimiter
+    @input.split(Regexp.union(DEFAULT_DELIMITER))
+  end
+
 end
