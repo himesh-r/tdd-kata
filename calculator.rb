@@ -2,7 +2,7 @@ class Calculator
 
   DEFAULT_DELIMITER = ["\n", ',']
 
-  attr_accessor :input, :input_array_str, :input_numbers
+  attr_accessor :input, :input_array_str, :input_numbers, :custom_delimiter
 
   def initialize(args)
     @input = args
