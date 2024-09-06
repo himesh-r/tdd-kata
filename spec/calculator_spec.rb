@@ -127,6 +127,14 @@ RSpec.describe Calculator do
     end
   end
 
+  describe "strip_custom_delimiter" do
+    it "removes custom delimiter pattern from input string" do
+      calculator = Calculator.new("//;\n1,2")
+      calculator.strip_custom_delimiter
+      expect(calculator.input).to eq("1,2")
+    end
+  end
+
   describe "split_by_delimiter" do
     it "splits input string by allowed delimiter ','" do
       calculator = Calculator.new "1,2"
